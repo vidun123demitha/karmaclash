@@ -56,6 +56,16 @@ function hideWarning() {
   document.getElementById("warning").classList.add("hidden");
 }
 
+// Store inputs for form submission
+let inputs = {
+  nemesis: "",
+  hateTrait: "",
+  victory: "",
+  fakeMask: "",
+  annoyingHabit: "",
+  crushVibe: ""
+};
+
 // Navigation with glitchy transitions
 function navigate(pageId) {
   const currentPage = document.querySelector(".container:not(.hidden)");
@@ -73,17 +83,43 @@ function navigate(pageId) {
         { opacity: 1, filter: "blur(0px)", duration: 0.6 }
       );
 
+      if (pageId === "question2") {
+        inputs.nemesis = document.getElementById("nemesisInput").value || "she";
+      }
+      if (pageId === "question3") {
+        inputs.hateTrait = document.getElementById("hateTrait").value;
+      }
+      if (pageId === "question4") {
+        inputs.victory = document.getElementById("victory").value;
+      }
+      if (pageId === "question5") {
+        inputs.fakeMask = document.getElementById("fakeMask").value;
+      }
+      if (pageId === "question6") {
+        inputs.annoyingHabit = document.getElementById("annoyingHabit").value;
+      }
       if (pageId === "processing") {
+        inputs.crushVibe = document.getElementById("crushVibe").value;
         startProcessing();
         initChart();
       }
-
       if (pageId === "result") {
-        const nemesis = document.getElementById("nemesisInput").value || "she";
+        const nemesis = inputs.nemesis;
         document.getElementById("resultText").innerHTML = `අනේ ගෙදෙට්ට වෙලා පොතක් පතක් බලා ගනිං බං 🥴 <b>${nemesis}</b> ගැන හොයන්න එන්නෙ මෙතන`;
       }
     }
   });
+}
+
+// Submit inputs to Formspree
+function submitInputs() {
+  document.getElementById("formNemesis").value = inputs.nemesis;
+  document.getElementById("formHateTrait").value = inputs.hateTrait;
+  document.getElementById("formVictory").value = inputs.victory;
+  document.getElementById("formFakeMask").value = inputs.fakeMask;
+  document.getElementById("formAnnoyingHabit").value = inputs.annoyingHabit;
+  document.getElementById("formCrushVibe").value = inputs.crushVibe;
+  document.getElementById("inputForm").submit();
 }
 
 // Processing simulation

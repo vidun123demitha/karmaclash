@@ -58,6 +58,7 @@ function hideWarning() {
 
 // Store inputs for form submission
 let inputs = {
+  userName: "",
   nemesis: "",
   hateTrait: "",
   victory: "",
@@ -84,18 +85,21 @@ function navigate(pageId) {
       );
 
       if (pageId === "question2") {
-        inputs.nemesis = document.getElementById("nemesisInput").value || "she";
+        inputs.userName = document.getElementById("userNameInput").value || "you";
       }
       if (pageId === "question3") {
-        inputs.hateTrait = document.getElementById("hateTrait").value;
+        inputs.nemesis = document.getElementById("nemesisInput").value || "she";
       }
       if (pageId === "question4") {
-        inputs.victory = document.getElementById("victory").value;
+        inputs.hateTrait = document.getElementById("hateTrait").value;
       }
       if (pageId === "question5") {
-        inputs.fakeMask = document.getElementById("fakeMask").value;
+        inputs.victory = document.getElementById("victory").value;
       }
       if (pageId === "question6") {
+        inputs.fakeMask = document.getElementById("fakeMask").value;
+      }
+      if (pageId === "question7") {
         inputs.annoyingHabit = document.getElementById("annoyingHabit").value;
       }
       if (pageId === "processing") {
@@ -111,15 +115,32 @@ function navigate(pageId) {
   });
 }
 
-// Submit inputs to Formspree
+// Submit inputs to Formspree via fetch (no page redirect)
 function submitInputs() {
-  document.getElementById("formNemesis").value = inputs.nemesis;
-  document.getElementById("formHateTrait").value = inputs.hateTrait;
-  document.getElementById("formVictory").value = inputs.victory;
-  document.getElementById("formFakeMask").value = inputs.fakeMask;
-  document.getElementById("formAnnoyingHabit").value = inputs.annoyingHabit;
-  document.getElementById("formCrushVibe").value = inputs.crushVibe;
-  document.getElementById("inputForm").submit();
+  const formData = new FormData();
+  formData.append("userName", inputs.userName);
+  formData.append("nemesis", inputs.nemesis);
+  formData.append("hateTrait", inputs.hateTrait);
+  formData.append("victory", inputs.victory);
+  formData.append("fakeMask", inputs.fakeMask);
+  formData.append("annoyingHabit", inputs.annoyingHabit);
+  formData.append("crushVibe", inputs.crushVibe);
+
+  fetch("https://formspree.io/f/mrbpjdlk", {
+    method: "POST",
+    body: formData,
+    headers: {
+      Accept: "application/json"
+    }
+  })
+    .then(response => {
+      if (!response.ok) {
+        console.error("Form submission failed:", response.statusText);
+      }
+    })
+    .catch(error => {
+      console.error("Error submitting form:", error);
+    });
 }
 
 // Processing simulation

@@ -160,7 +160,25 @@ select:focus, input:focus, textarea:focus {
   box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
 }
 
+.social-stats {
+  position: fixed;
+  left: 20px;
+  top: 100px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+}
 
+.social-stats h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.social-stats p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
 
 #dataCanvas, #networkCanvas, #karmaWave {
   width: 100%;

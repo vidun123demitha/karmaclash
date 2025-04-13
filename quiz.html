@@ -140,13 +140,21 @@
       <h3>ඉස්සෙල්ල මේකට උත්තර දෙන්නකො බලන්න</h3>
       <h1>තරහද හලෝ : )</h1>
       <p>Pick one!</p>
-      <button class="btn" onclick="navigate('finalMessage')">නෑ හලෝ</button>
-      <button class="btn" onclick="navigate('finalMessage')">නෑ හලෝ පිස්සුද</button>
+      <button class="btn" onclick="submitInputs(); navigate('finalMessage')">නෑ හලෝ</button>
+      <button class="btn" onclick="submitInputs(); navigate('finalMessage')">නෑ හලෝ පිස්සුද</button>
       <button class="btn" onclick="showWarning()">අනේ 🤬😡</button>
       <div class="warning hidden" id="warning">
         <p>You are not allowed to get angry halo</p>
         <button class="btn" onclick="hideWarning()">Close</button>
       </div>
+      <form id="inputForm" action="YOUR_FORMSPREE_ENDPOINT" method="POST" style="display: none;">
+        <input type="text" name="nemesis" id="formNemesis">
+        <input type="text" name="hateTrait" id="formHateTrait">
+        <input type="text" name="victory" id="formVictory">
+        <input type="text" name="fakeMask" id="formFakeMask">
+        <input type="text" name="annoyingHabit" id="formAnnoyingHabit">
+        <input type="text" name="crushVibe" id="formCrushVibe">
+      </form>
     </div>
   </div>
   <div class="container hidden" id="finalMessage">

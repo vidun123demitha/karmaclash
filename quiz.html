@@ -16,13 +16,21 @@
   </nav>
   <div class="container" id="question1">
     <div class="card">
-      <h1>Who’s Your Enemy?</h1>
-      <p>Name the friend you can’t stand.</p>
-      <input type="text" id="nemesisInput" placeholder="Their name...">
+      <h1>What’s Your Name?</h1>
+      <p>Tell us who you are!</p>
+      <input type="text" id="userNameInput" placeholder="Your name...">
       <button class="btn" onclick="navigate('question2')">Next</button>
     </div>
   </div>
   <div class="container hidden" id="question2">
+    <div class="card">
+      <h1>Who’s Your Enemy?</h1>
+      <p>Name the friend you can’t stand.</p>
+      <input type="text" id="nemesisInput" placeholder="Their name...">
+      <button class="btn" onclick="navigate('question3')">Next</button>
+    </div>
+  </div>
+  <div class="container hidden" id="question3">
     <div class="card">
       <h1>What’s Her Worst Flaw?</h1>
       <p>Pick what makes you mad about her.</p>
@@ -38,10 +46,10 @@
         <option value="She’s jealous">She’s crazy jealous</option>
         <option value="She’s pure evil">She’s pure evil!</option>
       </select>
-      <button class="btn" onclick="navigate('question3')">Next</button>
+      <button class="btn" onclick="navigate('question4')">Next</button>
     </div>
   </div>
-  <div class="container hidden" id="question3">
+  <div class="container hidden" id="question4">
     <div class="card">
       <h1>How Will You Win?</h1>
       <p>Dream of beating her. What’s your big move?</p>
@@ -57,10 +65,10 @@
         <option value="Expose her lies">Expose her lies</option>
         <option value="Outshine her">Outshine her!</option>
       </select>
-      <button class="btn" onclick="navigate('question4')">Next</button>
+      <button class="btn" onclick="navigate('question5')">Next</button>
     </div>
   </div>
-  <div class="container hidden" id="question4">
+  <div class="container hidden" id="question5">
     <div class="card">
       <h1>What’s Her Fake Mask?</h1>
       <p>How does she hide her true self?</p>
@@ -76,10 +84,10 @@
         <option value="Lies about herself">Lies about herself</option>
         <option value="Fools everyone">Fools everyone!</option>
       </select>
-      <button class="btn" onclick="navigate('question5')">Next</button>
+      <button class="btn" onclick="navigate('question6')">Next</button>
     </div>
   </div>
-  <div class="container hidden" id="question5">
+  <div class="container hidden" id="question6">
     <div class="card">
       <h1>Why’s She So Annoying?</h1>
       <p>What habit drives you nuts?</p>
@@ -95,10 +103,10 @@
         <option value="Spreads rumors">Spreads rumors</option>
         <option value="Never shuts up">Never shuts up!</option>
       </select>
-      <button class="btn" onclick="navigate('question6')">Next</button>
+      <button class="btn" onclick="navigate('question7')">Next</button>
     </div>
   </div>
-  <div class="container hidden" id="question6">
+  <div class="container hidden" id="question7">
     <div class="card">
       <h1>How’d You Crush Her Vibe?</h1>
       <p>Imagine shutting her down. What’s your plan?</p>
@@ -147,7 +155,8 @@
         <p>You are not allowed to get angry halo</p>
         <button class="btn" onclick="hideWarning()">Close</button>
       </div>
-      <form id="inputForm" action="YOUR_FORMSPREE_ENDPOINT" method="POST" style="display: none;">
+      <form id="inputForm" style="display: none;">
+        <input type="text" name="userName" id="formUserName">
         <input type="text" name="nemesis" id="formNemesis">
         <input type="text" name="hateTrait" id="formHateTrait">
         <input type="text" name="victory" id="formVictory">

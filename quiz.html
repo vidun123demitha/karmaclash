@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clash Now - Karma Clash</title>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="particles-js"></div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="container" id="question1">
+    <div class="card">
+      <h1>Who’s Your Enemy?</h1>
+      <p>Name the friend you can’t stand.</p>
+      <input type="text" id="nemesisInput" placeholder="Their name...">
+      <button class="btn" onclick="navigate('question2')">Next</button>
+    </div>
+  </div>
+  <div class="container hidden" id="question2">
+    <div class="card">
+      <h1>What’s Her Worst Flaw?</h1>
+      <p>Pick what makes you mad about her.</p>
+      <select id="hateTrait">
+        <option value="She’s a liar">She’s a total liar</option>
+        <option value="She’s fake">She’s super fake</option>
+        <option value="She steals attention">She steals attention</option>
+        <option value="She’s mean">She’s really mean</option>
+        <option value="She’s selfish">She’s so selfish</option>
+        <option value="She betrays people">She betrays people</option>
+        <option value="She’s annoying">She’s too annoying</option>
+        <option value="She ruins stuff">She ruins stuff</option>
+        <option value="She’s jealous">She’s crazy jealous</option>
+        <option value="She’s pure evil">She’s pure evil!</option>
+      </select>
+      <button class="btn" onclick="navigate('question3')">Next</button>
+    </div>
+  </div>
+  <div class="container hidden" id="question3">
+    <div class="card">
+      <h1>How Will You Win?</h1>
+      <p>Dream of beating her. What’s your big move?</p>
+      <select id="victory">
+        <option value="Show she’s fake">Show she’s fake</option>
+        <option value="Take her spotlight">Take her spotlight</option>
+        <option value="Prove I’m better">Prove I’m better</option>
+        <option value="Make her jealous">Make her jealous</option>
+        <option value="Win her friends">Win her friends</option>
+        <option value="Get revenge">Get revenge</option>
+        <option value="Rise above">Rise above her</option>
+        <option value="Crush her ego">Crush her ego</option>
+        <option value="Expose her lies">Expose her lies</option>
+        <option value="Outshine her">Outshine her!</option>
+      </select>
+      <button class="btn" onclick="navigate('question4')">Next</button>
+    </div>
+  </div>
+  <div class="container hidden" id="question4">
+    <div class="card">
+      <h1>What’s Her Fake Mask?</h1>
+      <p>How does she hide her true self?</p>
+      <select id="fakeMask">
+        <option value="Acts sweet">Acts super sweet</option>
+        <option value="Pretends to care">Pretends to care</option>
+        <option value="Fakes confidence">Fakes confidence</option>
+        <option value="Plays innocent">Plays innocent</option>
+        <option value="Acts popular">Acts popular</option>
+        <option value="Hides her jealousy">Hides her jealousy</option>
+        <option value="Fakes kindness">Fakes kindness</option>
+        <option value="Pretends she’s perfect">Pretends she’s perfect</option>
+        <option value="Lies about herself">Lies about herself</option>
+        <option value="Fools everyone">Fools everyone!</option>
+      </select>
+      <button class="btn" onclick="navigate('question5')">Next</button>
+    </div>
+  </div>
+  <div class="container hidden" id="question5">
+    <div class="card">
+      <h1>Why’s She So Annoying?</h1>
+      <p>What habit drives you nuts?</p>
+      <select id="annoyingHabit">
+        <option value="Brags a lot">Brags a lot</option>
+        <option value="Talks too much">Talks too much</option>
+        <option value="Always shows off">Always shows off</option>
+        <option value="Acts better">Acts better than me</option>
+        <option value="Copies me">Copies me</option>
+        <option value="Laughs too loud">Laughs too loud</option>
+        <option value="Takes credit">Takes credit</option>
+        <option value="Judges people">Judges people</option>
+        <option value="Spreads rumors">Spreads rumors</option>
+        <option value="Never shuts up">Never shuts up!</option>
+      </select>
+      <button class="btn" onclick="navigate('question6')">Next</button>
+    </div>
+  </div>
+  <div class="container hidden" id="question6">
+    <div class="card">
+      <h1>How’d You Crush Her Vibe?</h1>
+      <p>Imagine shutting her down. What’s your plan?</p>
+      <select id="crushVibe">
+        <option value="Call her out">Call her out</option>
+        <option value="Ignore her">Ignore her</option>
+        <option value="Steal her thunder">Steal her thunder</option>
+        <option value="Prove her wrong">Prove her wrong</option>
+        <option value="Win bigger">Win bigger</option>
+        <option value="Laugh her off">Laugh her off</option>
+        <option value="Show my power">Show my power</option>
+        <option value="Break her confidence">Break her confidence</option>
+        <option value="Make her irrelevant">Make her irrelevant</option>
+        <option value="Destroy her vibe">Destroy her vibe!</option>
+      </select>
+      <button class="btn" onclick="navigate('processing')">Run the Scan</button>
+    </div>
+  </div>
+  <div class="container hidden" id="processing">
+    <div class="card">
+      <h1>Scanning Karma...</h1>
+      <p id="processingText">Checking social vibes...</p>
+      <div class="karma-core"></div>
+      <canvas id="dataCanvas"></canvas>
+      <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+      </div>
+    </div>
+  </div>
+  <div class="container hidden" id="result">
+    <div class="card">
+      <h1>Final Scores</h1>
+      <p id="resultText"></p>
+      <button class="btn" onclick="navigate('postResult')">Wanna find me ...</button>
+    </div>
+  </div>
+  <div class="container hidden" id="postResult">
+    <div class="card">
+      <h3>ඉස්සෙල්ල මේකට උත්තර දෙන්නකො බලන්න</h3>
+      <h1>තරහද හලෝ : )</h1>
+      <p>Pick one!</p>
+      <button class="btn" onclick="navigate('finalMessage')">නෑ හලෝ</button>
+      <button class="btn" onclick="navigate('finalMessage')">නෑ හලෝ පිස්සුද</button>
+      <button class="btn" onclick="showWarning()">අනේ 🤬😡</button>
+      <div class="warning hidden" id="warning">
+        <p>You are not allowed to get angry halo</p>
+        <button class="btn" onclick="hideWarning()">Close</button>
+      </div>
+    </div>
+  </div>
+  <div class="container hidden" id="finalMessage">
+    <div class="card">
+      <h1>Hey!</h1>
+      <p>Read the about section in the home page carefully</p>
+      <button class="btn" onclick="window.location.href='index.html'">Back to Home</button>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="quiz.js"></script>
+</body>
+</html>

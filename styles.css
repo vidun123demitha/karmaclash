@@ -1,0 +1,243 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Exo 2', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0d0d1a, #1a0d2e);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  padding: 10px 0;
+  text-align: center;
+  z-index: 10;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 20px;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+nav a:hover, nav a.active {
+  color: #9b59b6;
+  text-shadow: 0 0 10px #9b59b6;
+}
+
+.container {
+  max-width: 900px;
+  margin: 80px auto 20px;
+  padding: 20px;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 3.5rem;
+  background: linear-gradient(45deg, #9b59b6, #00f4ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+  animation: neonGlow 2s ease-in-out infinite;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin: 20px 0;
+  color: #fff;
+  text-shadow: 0 0 10px #9b59b6;
+}
+
+h3 {
+  font-size: 1.8rem;
+  margin: 10px 0;
+  color: #00f4ff;
+}
+
+@keyframes neonGlow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.9; }
+}
+
+p {
+  font-size: 1.2rem;
+  margin: 20px 0;
+  opacity: 0.9;
+  line-height: 1.6;
+  text-shadow: 0 0 8px rgba(0, 244, 255, 0.3);
+}
+
+p span {
+  opacity: 0.9;
+  font-style: normal;
+}
+
+.btn {
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(45deg, #9b59b6, #00f4ff);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(155, 89, 182, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin: 10px;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 244, 255, 0.5);
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  padding: 40px;
+  border-radius: 25px;
+  margin: 20px 0;
+  border: 2px solid transparent;
+  animation: glowBorder 3s ease-in-out infinite;
+  transition: transform 0.3s;
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+}
+
+.card:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+}
+
+@keyframes glowBorder {
+  0%, 100% { border-color: rgba(155, 89, 182, 0.5); }
+  50% { border-color: rgba(0, 244, 255, 0.5); }
+}
+
+input, select, textarea {
+  padding: 12px;
+  margin: 15px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #9b59b6, #8e44ad);
+  color: #fff;
+  font-size: 1.1rem;
+  width: 80%;
+  box-shadow: 0 0 15px rgba(155, 89, 182, 0.3);
+}
+
+select option {
+  background: #1a0d2e;
+  color: #fff;
+}
+
+textarea {
+  height: 100px;
+  resize: none;
+}
+
+select:focus, input:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+}
+
+
+
+#dataCanvas, #networkCanvas, #karmaWave {
+  width: 100%;
+  max-width: 600px;
+  height: 200px;
+  margin: 20px auto;
+}
+
+.progress-bar {
+  width: 80%;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 30px auto;
+}
+
+.progress {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(45deg, #9b59b6, #00f4ff);
+  transition: width 0.6s ease;
+}
+
+.karma-core {
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, #9b59b6, #00f4ff);
+  border-radius: 50%;
+  margin: 20px auto;
+  animation: pulseCore 1.5s ease-in-out infinite;
+  filter: blur(10px);
+}
+
+@keyframes pulseCore {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+.warning {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.9);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #9b59b6;
+  text-align: center;
+  z-index: 20;
+}
+
+.warning p {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-section {
+  margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 2rem; }
+  p { font-size: 1rem; }
+  .btn { padding: 12px 30px; }
+  .card { padding: 20px; }
+  .social-stats { left: 10px; padding: 10px; }
+  #dataCanvas, #networkCanvas, #karmaWave { height: 150px; }
+}

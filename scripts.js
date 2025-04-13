@@ -51,7 +51,7 @@ if (waveCanvas) {
     ctx.clearRect(0, 0, waveCanvas.width, waveCanvas.height);
     ctx.beginPath();
     ctx.strokeStyle = "#9b59b6";
-    ctx.lineWidth = 2;
+    ctx.lineWidth: 2;
     for (let x = 0; x < waveCanvas.width; x++) {
       const y = Math.sin(x * 0.02 + t) * 50 + waveCanvas.height / 2;
       ctx.lineTo(x, y);
